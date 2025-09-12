@@ -64,7 +64,7 @@ const Footer = () => {
             <div className="carousel-inner text-center">
               <div className="carousel-item active">
                 <img
-                  src="https://via.placeholder.com/150x60?text=Partenaire+1"
+                  src="https://i.pinimg.com/736x/d9/7a/e4/d97ae41683750486d6593f2c18ccd82c.jpg"
                   className="partner-logo d-block mx-auto"
                   alt="Partenaire 1"
                   style={partnerLogoStyle}
@@ -72,7 +72,7 @@ const Footer = () => {
               </div>
               <div className="carousel-item">
                 <img
-                  src="https://via.placeholder.com/150x60?text=Partenaire+2"
+                  src="https://i.pinimg.com/1200x/09/7e/f3/097ef3d09fc63758078eb7a3eba41b43.jpg"
                   className="partner-logo d-block mx-auto"
                   alt="Partenaire 2"
                   style={partnerLogoStyle}
@@ -80,7 +80,7 @@ const Footer = () => {
               </div>
               <div className="carousel-item">
                 <img
-                  src="https://via.placeholder.com/150x60?text=Partenaire+3"
+                  src="https://i.pinimg.com/736x/f8/d6/44/f8d64404d2ab779a058565ef53d90d19.jpg"
                   className="partner-logo d-block mx-auto"
                   alt="Partenaire 3"
                   style={partnerLogoStyle}
@@ -108,10 +108,9 @@ const Footer = () => {
           {/* Colonnes */}
           <div className="row gx-5">
             <div className="col-md-4 mb-4">
-              <h5 className="fw-bold text-uppercase">MonSite</h5>
+              <h5 className="fw-bold text-uppercase">Africa Job Agency</h5>
               <p>
-                Un site moderne et réactif construit avec Bootstrap. Créez des
-                expériences web incroyables avec style et simplicité.
+                Votre plateforme de recrutement et formation professionnelle.
               </p>
             </div>
 
@@ -158,7 +157,7 @@ const Footer = () => {
                 </a>
               </div>
               <p>
-                <i className="bi bi-envelope me-2"></i> contact@monsite.com
+                <i className="bi bi-envelope me-2"></i> contacts@africajobagency.com
               </p>
               <p>
                 <i className="bi bi-phone me-2"></i> +229 01 66 00 81 00
@@ -168,7 +167,7 @@ const Footer = () => {
         </div>
 
         <div className="text-center border-top border-secondary py-3">
-          © 2025 MonSite — Tous droits réservés.
+          © 2025 Africa Job Agency — Tous droits réservés.
         </div>
       </footer>
     </>

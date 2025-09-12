@@ -20,10 +20,22 @@ const style = {
   icon: {
     fontSize: "2.8rem",
     marginBottom: "1rem",
-    color: "#4f46e5",
   },
-  btnCustom: {
-    backgroundColor: "#4f46e5",
+  btnWhatsApp: {
+    backgroundColor: "#25D366", // Vert WhatsApp
+    color: "#fff",
+    borderRadius: "30px",
+    padding: "0.5rem 1.5rem",
+    transition: "background-color 0.3s",
+  },
+  btnMessenger: {
+    backgroundColor: "#4f46e5", // Bleu par défaut
+    color: "#fff",
+    borderRadius: "30px",
+    padding: "0.5rem 1.5rem",
+  },
+  btnMail: {
+    backgroundColor: "#dc3545", // Rouge pour email
     color: "#fff",
     borderRadius: "30px",
     padding: "0.5rem 1.5rem",
@@ -38,6 +50,36 @@ const style = {
 };
 
 function Contact() {
+  const contacts = [
+    {
+      icon: "bi bi-whatsapp",
+      title: "WhatsApp",
+      text: "Discutez instantanément avec nous via WhatsApp.",
+      link: "https://wa.me/33612345678",
+      btn: "Envoyer un message",
+      btnStyle: style.btnWhatsApp,
+      hover: "#1ebe5c",
+    },
+    {
+      icon: "bi bi-messenger",
+      title: "Messenger",
+      text: "Contactez-nous directement sur Facebook Messenger.",
+      link: "https://m.me/votrepage",
+      btn: "Ouvrir Messenger",
+      btnStyle: style.btnMessenger,
+      hover: "#3b36c2",
+    },
+    {
+      icon: "bi bi-envelope",
+      title: "Email",
+      text: "Envoyez-nous un mail pour toute demande ou information.",
+      link: "mailto:contacts@africajobagency.com",
+      btn: "Envoyer un mail",
+      btnStyle: style.btnMail,
+      hover: "#b52a38",
+    },
+  ];
+
   return (
     <div style={style.body}>
       {/* Hero */}
@@ -52,29 +94,7 @@ function Contact() {
       <section className="py-5">
         <div className="container">
           <div className="row g-4 mb-5">
-            {[
-              {
-                icon: "bi bi-whatsapp",
-                title: "WhatsApp",
-                text: "Discutez instantanément avec nous via WhatsApp.",
-                link: "https://wa.me/33612345678",
-                btn: "Envoyer un message",
-              },
-              {
-                icon: "bi bi-messenger",
-                title: "Messenger",
-                text: "Contactez-nous directement sur Facebook Messenger.",
-                link: "https://m.me/votrepage",
-                btn: "Ouvrir Messenger",
-              },
-              {
-                icon: "bi bi-envelope",
-                title: "Email",
-                text: "Envoyez-nous un mail pour toute demande ou information.",
-                link: "mailto:contact@monsite.com",
-                btn: "Envoyer un mail",
-              },
-            ].map((item, index) => (
+            {contacts.map((item, index) => (
               <div className="col-md-4" key={index}>
                 <div
                   className="contact-card h-100"
@@ -90,7 +110,7 @@ function Contact() {
                       "0 4px 12px rgba(0,0,0,0.05)";
                   }}
                 >
-                  <i className={item.icon} style={style.icon}></i>
+                  <i className={item.icon} style={{ ...style.icon, color: item.btnStyle.backgroundColor }}></i>
                   <h5 className="fw-bold">{item.title}</h5>
                   <p>{item.text}</p>
                   <a
@@ -98,12 +118,13 @@ function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn"
-                    style={style.btnCustom}
+                    style={item.btnStyle}
                     onMouseEnter={(e) =>
-                      (e.target.style.backgroundColor = "#4338ca")
+                      (e.target.style.backgroundColor = item.hover)
                     }
                     onMouseLeave={(e) =>
-                      (e.target.style.backgroundColor = "#4f46e5")
+                      (e.target.style.backgroundColor =
+                        item.btnStyle.backgroundColor)
                     }
                   >
                     {item.btn}
@@ -171,13 +192,7 @@ function Contact() {
                     <button
                       type="submit"
                       className="btn px-5"
-                      style={style.btnCustom}
-                      onMouseEnter={(e) =>
-                        (e.target.style.backgroundColor = "#4338ca")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.target.style.backgroundColor = "#4f46e5")
-                      }
+                      style={style.btnMessenger}
                     >
                       Envoyer
                     </button>

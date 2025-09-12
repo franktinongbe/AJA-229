@@ -43,7 +43,7 @@ export default function Register() {
     <div style={styles.container}>
       {/* Section gauche */}
       <div style={styles.left}>
-        <h1 className="fw-bold mb-3">Bienvenue sur MonSite</h1>
+        <h1 className="fw-bold mb-3">Bienvenue</h1>
         <p className="lead">
           Rejoignez notre plateforme pour accéder aux meilleures opportunités.
         </p>

@@ -44,7 +44,7 @@ const Home = () => (
     {/* Hero */}
     <section className="hero text-center">
       <div className="container">
-        <h1 className="fw-bold display-4">Bienvenue sur RecrutPro</h1>
+        <h1 className="fw-bold display-4">Bienvenue à Africa Job Agnecy</h1>
         <p className="lead">
           Votre partenaire pour le recrutement, la formation et la gestion des talents.
         </p>
