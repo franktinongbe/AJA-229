@@ -9,7 +9,7 @@ const Navbar = () => (
       }
       .navbar-custom {
         width: 100%;
-        background: linear-gradient(90deg, #4f46e5, #9333ea);
+        background: linear-gradient(90deg, #1d1d1fff, #1c0577ff);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
       }
@@ -19,6 +19,10 @@ const Navbar = () => (
       }
       .nav-link:hover, .navbar-brand:hover {
         color: #e0e7ff !important;
+      }
+      .navbar-brand img {
+        height: 60px;
+        width: auto;
       }
       .btn-custom {
         background-color: #fbbf24;
@@ -60,22 +64,28 @@ const Navbar = () => (
       .navbar-toggler-icon::after {
         top: 6px;
       }
-      /* Style du menu déroulant */
+
+      /* 📱 Styles mobiles */
       @media (max-width: 991px) {
+        /* Couleur du fond quand on ouvre le hamburger */
         .navbar-collapse {
-          background-color: #4f46e5;
+          background-color: #111827; /* 🔵 change ici la couleur du menu */
           border-radius: 0.5rem;
           padding: 1rem;
         }
+        /* Liens de navigation sur mobile */
         .navbar-nav .nav-link {
+          color: #fbbf24 !important; /* 🟡 couleur des liens sur mobile */
           padding: 0.75rem 1rem;
           border-radius: 0.25rem;
           margin-bottom: 0.5rem;
           text-align: center;
-          background-color: rgba(255,255,255,0.1);
+          background-color: rgba(255,255,255,0.05);
+          transition: all 0.3s ease;
         }
         .navbar-nav .nav-link:hover {
-          background-color: rgba(255,255,255,0.2);
+          color: #fff !important;
+          background-color: rgba(255,255,255,0.15);
         }
         .btn-custom {
           display: block;
@@ -85,9 +95,15 @@ const Navbar = () => (
         }
       }
     `}</style>
+
     <nav className="navbar navbar-expand-lg navbar-custom shadow fixed-top">
       <div className="container-fluid">
-        <a className="navbar-brand fw-bold" href="/">MonLogo</a>
+        {/* Logo */}
+        <a className="navbar-brand fw-bold d-flex align-items-center" href="/">
+          <img src="/logo.jpeg" alt="Mon Logo" />
+        </a>
+
+        {/* Bouton menu pour mobile */}
         <button
           className="navbar-toggler"
           type="button"
@@ -99,6 +115,8 @@ const Navbar = () => (
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
+        {/* Liens de navigation */}
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav me-3">
             <li className="nav-item">
@@ -120,6 +138,8 @@ const Navbar = () => (
         </div>
       </div>
     </nav>
+
+    {/* Décalage pour éviter que le contenu soit masqué sous la navbar */}
     <div style={{ height: "70px" }}></div>
   </>
 );

@@ -10,6 +10,13 @@ import Login from "./Authentifications/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ForgotPassword from "./Authentifications/ForgotPassword";
+import Interim from "./Pages/Interim";
+import Gestion_de_Paie from "./Pages/Gestion_de_Paie";
+import Formations from "./Pages/Formations";
+import RH from "./Pages/RH";
+import ModalRendezVous from "./components/ModalRendezVous";
+import Recrutement from "./Pages/Recrutement";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import React from "react";
 
@@ -40,6 +47,14 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
+          <Route path="/interim" element={<Interim />} />
+          <Route path="/paie" element={<Gestion_de_Paie />} />
+          <Route path="/formation" element={<Formations />} />
+          <Route path="/conseil" element={<RH />} />
+          <Route path="/recrutement" element={<Recrutement />} />
+          <Route path="/rendez-vous" element={<ModalRendezVous />} />
+
+
         </Routes>
       </Layout>
     </Router>

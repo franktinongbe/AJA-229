@@ -2,18 +2,38 @@ import React from "react";
 
 const style = `
   body { background-color: #f9fafb; }
+
   .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-      url('https://via.placeholder.com/1600x600?text=Hero+Section') center/cover no-repeat;
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('/PDG.png') center center / cover no-repeat;
     color: white;
-    padding: 120px 0;
+    padding: 140px 0;
+    overflow: hidden;
+    background-attachment: fixed; /* effet parallaxe */
   }
+
+  /* Rendre le hero adaptable sur mobile */
+  @media (max-width: 768px) {
+    .hero {
+      background-attachment: scroll; /* désactive le parallaxe sur mobile */
+      padding: 100px 0;
+      background-position: center top;
+    }
+  }
+
+  .hero h1, .hero p {
+    position: relative;
+    z-index: 2;
+  }
+
   .partner-logo {
     max-height: 60px;
     filter: grayscale(100%);
     transition: filter 0.3s;
   }
   .partner-logo:hover { filter: grayscale(0%); }
+
   .stats-card {
     background: white;
     border-radius: 1rem;
@@ -21,6 +41,7 @@ const style = `
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
+
   iframe {
     border: 0;
     width: 100%;
@@ -44,7 +65,7 @@ const Home = () => (
     {/* Hero */}
     <section className="hero text-center">
       <div className="container">
-        <h1 className="fw-bold display-4">Bienvenue à Africa Job Agnecy</h1>
+        <h1 className="fw-bold display-4">Bienvenue à Africa Job Agency</h1>
         <p className="lead">
           Votre partenaire pour le recrutement, la formation et la gestion des talents.
         </p>
@@ -76,54 +97,20 @@ const Home = () => (
         <div id="carouselPartenaires" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img
-                src="https://via.placeholder.com/200x100?text=Partenaire+1"
-                className="partner-logo mx-3"
-                alt="Partenaire 1"
-              />
-              <img
-                src="https://via.placeholder.com/200x100?text=Partenaire+2"
-                className="partner-logo mx-3"
-                alt="Partenaire 2"
-              />
-              <img
-                src="https://via.placeholder.com/200x100?text=Partenaire+3"
-                className="partner-logo mx-3"
-                alt="Partenaire 3"
-              />
+              <img src="https://via.placeholder.com/200x100?text=Partenaire+1" className="partner-logo mx-3" alt="Partenaire 1" />
+              <img src="https://via.placeholder.com/200x100?text=Partenaire+2" className="partner-logo mx-3" alt="Partenaire 2" />
+              <img src="https://via.placeholder.com/200x100?text=Partenaire+3" className="partner-logo mx-3" alt="Partenaire 3" />
             </div>
             <div className="carousel-item">
-              <img
-                src="https://via.placeholder.com/200x100?text=Partenaire+4"
-                className="partner-logo mx-3"
-                alt="Partenaire 4"
-              />
-              <img
-                src="https://via.placeholder.com/200x100?text=Partenaire+5"
-                className="partner-logo mx-3"
-                alt="Partenaire 5"
-              />
-              <img
-                src="https://via.placeholder.com/200x100?text=Partenaire+6"
-                className="partner-logo mx-3"
-                alt="Partenaire 6"
-              />
+              <img src="https://via.placeholder.com/200x100?text=Partenaire+4" className="partner-logo mx-3" alt="Partenaire 4" />
+              <img src="https://via.placeholder.com/200x100?text=Partenaire+5" className="partner-logo mx-3" alt="Partenaire 5" />
+              <img src="https://via.placeholder.com/200x100?text=Partenaire+6" className="partner-logo mx-3" alt="Partenaire 6" />
             </div>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselPartenaires"
-            data-bs-slide="prev"
-          >
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="prev">
             <span className="carousel-control-prev-icon"></span>
           </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselPartenaires"
-            data-bs-slide="next"
-          >
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="next">
             <span className="carousel-control-next-icon"></span>
           </button>
         </div>
@@ -173,20 +160,10 @@ const Home = () => (
         <h2 className="fw-bold mb-4">Nous Contacter</h2>
         <p>Discutez avec nous via vos canaux préférés :</p>
         <div className="d-flex justify-content-center gap-4 mt-3">
-          <a
-            href="https://wa.me/+22966008100"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-light"
-          >
+          <a href="https://wa.me/+22966008100" target="_blank" rel="noopener noreferrer" className="btn btn-light">
             <i className="bi bi-whatsapp text-success"></i> WhatsApp
           </a>
-          <a
-            href="https://m.me/votrepage"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-light"
-          >
+          <a href="https://m.me/votrepage" target="_blank" rel="noopener noreferrer" className="btn btn-light">
             <i className="bi bi-messenger text-primary"></i> Messenger
           </a>
           <a href="mailto:contact@monsite.com" className="btn btn-light">

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const style = `
   body {
@@ -29,51 +30,45 @@ const style = `
 `;
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const services = [
     {
       icon: "bi bi-people-fill",
-      title: "Recrutement et Évaluation du Personnel",
+      title: "Recrutement",
       description:
         "Nous vous aidons à trouver les meilleurs talents et à évaluer leurs compétences pour un recrutement efficace et durable.",
+      link: "/recrutement",
     },
     {
       icon: "bi bi-mortarboard-fill",
-      title: "Formations",
+      title: "Formations et Team building",
       description:
-        "Des formations professionnelles adaptées à vos équipes pour développer leurs compétences et booster leur performance.",
+        "Nous apportons aux entreprises des solutions efficaces en termes de recrutement et de formation, en garantissant un suivi des candidats et un accompagnement personnalisé.",
+      link: "/formation",
     },
     {
       icon: "bi bi-briefcase-fill",
-      title: "Conseil en Gestion RH",
+      title: "Gestion de Paie",
       description:
-        "Optimisez votre gestion des ressources humaines grâce à nos conseils stratégiques et opérationnels sur mesure.",
+        "La formation et la bonne gestion du personnel sont essentielles pour s’adapter aux évolutions des entreprises.",
+      link: "/paie",
     },
     {
       icon: "bi bi-megaphone-fill",
-      title: "Communication et Publicité",
+      title: "Intérim",
       description:
         "Nous vous accompagnons dans la promotion de votre marque employeur et la communication efficace de vos offres.",
+      link: "/interim",
     },
     {
       icon: "bi bi-people",
-      title: "Séminaire d'Entreprise et Team Building",
+      title: "Conseils et Assistance RH",
       description:
         "Renforcez la cohésion et la motivation de vos équipes grâce à des séminaires et activités de team building dynamiques.",
+      link: "/conseil",
     },
   ];
-
-  const openModal = (title) => {
-    setSelectedService(title);
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setSelectedService("");
-  };
 
   return (
     <>
@@ -95,7 +90,7 @@ const Services = () => {
               <div className="col-md-6 col-lg-4" key={index}>
                 <div
                   className="service-card"
-                  onClick={() => openModal(service.title)}
+                  onClick={() => navigate(service.link)}
                 >
                   <i className={`${service.icon} service-icon`}></i>
                   <h5 className="fw-bold mb-3">{service.title}</h5>
@@ -106,68 +101,6 @@ const Services = () => {
           </div>
         </div>
       </section>
-
-      {/* Modal Formulaire */}
-      {showModal && (
-        <div
-          className="modal fade show"
-          style={{ display: "block", background: "rgba(0,0,0,0.5)" }}
-        >
-          <div className="modal-dialog">
-            <div className="modal-content rounded-4">
-              <div className="modal-header">
-                <h5 className="modal-title">
-                  Prendre Rendez-vous : {selectedService}
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={closeModal}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <form>
-                  <div className="mb-3">
-                    <label className="form-label">Nom complet</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Votre nom"
-                      required
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Email</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Votre email"
-                      required
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Date du rendez-vous</label>
-                    <input type="date" className="form-control" required />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Message</label>
-                    <textarea
-                      className="form-control"
-                      rows="3"
-                      placeholder="Votre message"
-                    ></textarea>
-                  </div>
-                  <button type="submit" className="btn btn-primary w-100">
-                    Envoyer
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </>
   );
 };
