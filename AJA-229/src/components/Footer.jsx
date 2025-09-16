@@ -1,7 +1,7 @@
 import React from "react";
 
 const footerStyle = {
-  backgroundColor: "#1f2937",
+  backgroundColor: "#031c3fff",
   color: "#f3f4f6",
   width: "100vw", // prend toute la largeur de la fenêtre
   margin: "0",
@@ -157,10 +157,10 @@ const Footer = () => {
                 </a>
               </div>
               <p>
-                <i className="bi bi-envelope me-2"></i> contacts@africajobagency.com
+                <i className="bi bi-envelope me-2"></i> admin@africajobagency.bj
               </p>
               <p>
-                <i className="bi bi-phone me-2"></i> +229 01 66 00 81 00
+                <i className="bi bi-phone me-2"></i> +229 01 55 67 45 45  /  01 52 51 47 47
               </p>
             </div>
           </div>

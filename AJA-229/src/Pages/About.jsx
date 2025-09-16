@@ -89,7 +89,7 @@ const About = () => {
       {/* Hero */}
       <section className="about-hero text-center">
         <div className="container">
-          <h1 className="fw-bold display-4">À propos de RecrutPro</h1>
+          <h1 className="fw-bold display-4">À propos de Africa Job Agency-229</h1>
           <p className="lead">Nous connectons les talents et les entreprises pour bâtir un avenir professionnel solide.</p>
         </div>
       </section>
@@ -100,19 +100,19 @@ const About = () => {
           <h2 className="fw-bold text-center mb-5">Notre Parcours</h2>
           <ul className="timeline">
             <li className="timeline-item left">
-              <h5 className="fw-bold">2008 – Fondation</h5>
-              <p>Lancement de RecrutPro avec la vision de connecter les talents aux entreprises.</p>
+              <h5 className="fw-bold">2020 – Fondation</h5>
+              <p>Lancement de Africa Job Agency-229 avec la vision de connecter les talents aux entreprises.</p>
             </li>
             <li className="timeline-item right">
-              <h5 className="fw-bold">2013 – Expansion Nationale</h5>
+              <h5 className="fw-bold">2021 – Expansion Nationale</h5>
               <p>Ouverture de nouveaux bureaux et partenariats avec des entreprises leaders.</p>
             </li>
             <li className="timeline-item left">
-              <h5 className="fw-bold">2017 – Innovation Digitale</h5>
+              <h5 className="fw-bold">2023 – Innovation Digitale</h5>
               <p>Introduction de solutions de recrutement en ligne et d’évaluations automatisées.</p>
             </li>
             <li className="timeline-item right">
-              <h5 className="fw-bold">2022 – Présence Internationale</h5>
+              <h5 className="fw-bold">2024 – Présence Internationale</h5>
               <p>Implantation dans plusieurs pays pour accompagner des clients internationaux.</p>
             </li>
           </ul>
@@ -127,22 +127,30 @@ const About = () => {
             <div className="col-md-4">
               <div className="icon-box bg-white rounded-4 p-4 shadow-sm">
                 <i className="bi bi-heart fs-1 text-primary"></i>
-                <h5 className="fw-bold mt-3">Passion</h5>
-                <p>Nous connectons les talents avec passion et engagement.</p>
+                <h5 className="fw-bold mt-3">Respect</h5>
+                <p>Respect de nos engagements, de nos Clients et Collaborateurs.</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box bg-white rounded-4 p-4 shadow-sm">
                 <i className="bi bi-shield-check fs-1 text-success"></i>
-                <h5 className="fw-bold mt-3">Intégrité</h5>
-                <p>Nous respectons des standards élevés d’éthique et de transparence.</p>
+                <h5 className="fw-bold mt-3">Rêve</h5>
+                <p>Rêve de devenir le meilleur choix en termes de satisfaction pour nos clients, <br />
+                Rêve de devenir une référence sous régionale.</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box bg-white rounded-4 p-4 shadow-sm">
                 <i className="bi bi-lightbulb fs-1 text-warning"></i>
-                <h5 className="fw-bold mt-3">Innovation</h5>
-                <p>Nous adoptons des outils modernes pour améliorer le processus RH.</p>
+                <h5 className="fw-bold mt-3">Simplicité</h5>
+                <p>Simplicité dans nos procédures, simplicité dans nos Organisation.</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="icon-box bg-white rounded-4 p-4 shadow-sm">
+                <i className="bi bi-lightbulb fs-1 text-warning"></i>
+                <h5 className="fw-bold mt-3">Sagesse</h5>
+                <p>Sagesse est ce que nous cultivons au sein de notre équipe pour le profit de nos partenaires.</p>
               </div>
             </div>
           </div>
@@ -155,23 +163,23 @@ const About = () => {
           <h2 className="fw-bold mb-5">Notre Équipe</h2>
           <div className="row g-4">
             <div className="col-md-3">
-              <img src="https://via.placeholder.com/150" alt="Membre 1" className="team-img shadow" />
-              <h6 className="fw-bold mt-2">Sophie Martin</h6>
-              <p>Directrice Générale</p>
+              <img src="/public/enock.png" alt="Membre 1" className="team-img shadow" />
+              <h6 className="fw-bold mt-2">Enock Yao AKAKPO</h6>
+              <p>Directeur Général</p>
             </div>
             <div className="col-md-3">
               <img src="https://via.placeholder.com/150" alt="Membre 2" className="team-img shadow" />
-              <h6 className="fw-bold mt-2">David Morel</h6>
+              <h6 className="fw-bold mt-2">David</h6>
               <p>Responsable RH</p>
             </div>
             <div className="col-md-3">
               <img src="https://via.placeholder.com/150" alt="Membre 3" className="team-img shadow" />
-              <h6 className="fw-bold mt-2">Claire Dupont</h6>
+              <h6 className="fw-bold mt-2">Claire</h6>
               <p>Consultante Recrutement</p>
             </div>
             <div className="col-md-3">
               <img src="https://via.placeholder.com/150" alt="Membre 4" className="team-img shadow" />
-              <h6 className="fw-bold mt-2">Julien Bernard</h6>
+              <h6 className="fw-bold mt-2">Julien</h6>
               <p>Chargé Marketing</p>
             </div>
           </div>

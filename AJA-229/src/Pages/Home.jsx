@@ -97,14 +97,14 @@ const Home = () => (
         <div id="carouselPartenaires" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src="https://via.placeholder.com/200x100?text=Partenaire+1" className="partner-logo mx-3" alt="Partenaire 1" />
-              <img src="https://via.placeholder.com/200x100?text=Partenaire+2" className="partner-logo mx-3" alt="Partenaire 2" />
-              <img src="https://via.placeholder.com/200x100?text=Partenaire+3" className="partner-logo mx-3" alt="Partenaire 3" />
+              <img src="/public/logo1.png" className="partner-logo mx-3" alt="Partenaire 1" />
+              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 2" />
+              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 3" />
             </div>
             <div className="carousel-item">
-              <img src="https://via.placeholder.com/200x100?text=Partenaire+4" className="partner-logo mx-3" alt="Partenaire 4" />
-              <img src="https://via.placeholder.com/200x100?text=Partenaire+5" className="partner-logo mx-3" alt="Partenaire 5" />
-              <img src="https://via.placeholder.com/200x100?text=Partenaire+6" className="partner-logo mx-3" alt="Partenaire 6" />
+              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 4" />
+              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 5" />
+              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 6" />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="prev">
