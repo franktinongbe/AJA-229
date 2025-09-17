@@ -1,8 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
+// ⚠️ Remplace '/app/' par le sous-dossier exact où tu déploies
 export default defineConfig({
   plugins: [react()],
-  base: './', // <-- IMPORTANT pour que Vercel serve correctement les assets
-})
+  base: '/app/', // Si ton site est à la racine du domaine, mets '/'
+  build: {
+    outDir: 'build',
+  },
+});
