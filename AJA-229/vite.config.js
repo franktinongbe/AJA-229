@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // ⚠️ Remplace '/app/' par le sous-dossier exact où tu déploies
 export default defineConfig({
   plugins: [react()],
-  base: '/app/', // Si ton site est à la racine du domaine, mets '/'
+  base: '/', // Si ton site est à la racine du domaine, mets '/'
   build: {
     outDir: 'build',
   },
