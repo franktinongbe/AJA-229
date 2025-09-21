@@ -15,10 +15,16 @@ import Gestion_de_Paie from "./Pages/Gestion_de_Paie";
 import Formations from "./Pages/Formations";
 import RH from "./Pages/RH";
 import ModalRendezVous from "./components/ModalRendezVous";
+import Profil from "./Pages/Profil";
+import Offres from "./Pages/offres";
+import AjoutOffre from "./Pages/AjoutOffre";
+import Sidebar from "./components/Sidebar";
 import Recrutement from "./Pages/Recrutement";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import React from "react";
+import UserDashboard from "./Pages/DashboardUser";
+import Feedback from "./Pages/Feedback";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -27,6 +33,7 @@ function Layout({ children }) {
   return (
     <>
       {!hideLayout && <Navbar />}
+      {!hideLayout && <Sidebar />}
       {children}
       {!hideLayout && <Footer />}
     </>
@@ -40,9 +47,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/services" element={<Services />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/offres" element={<Offres />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/ajout" element={<AjoutOffre />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />

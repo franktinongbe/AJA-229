@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React from "react";
 
 const style = `
@@ -6,17 +7,16 @@ const style = `
   .hero {
     position: relative;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('/PDG.png') center center / cover no-repeat;
+      url('/image1.png') center center / cover no-repeat;
     color: white;
     padding: 140px 0;
     overflow: hidden;
     background-attachment: fixed; /* effet parallaxe */
   }
 
-  /* Rendre le hero adaptable sur mobile */
   @media (max-width: 768px) {
     .hero {
-      background-attachment: scroll; /* désactive le parallaxe sur mobile */
+      background-attachment: scroll;
       padding: 100px 0;
       background-position: center top;
     }
@@ -163,9 +163,6 @@ const Home = () => (
           <a href="https://wa.me/+22966008100" target="_blank" rel="noopener noreferrer" className="btn btn-light">
             <i className="bi bi-whatsapp text-success"></i> WhatsApp
           </a>
-          <a href="https://m.me/votrepage" target="_blank" rel="noopener noreferrer" className="btn btn-light">
-            <i className="bi bi-messenger text-primary"></i> Messenger
-          </a>
           <a href="mailto:contact@monsite.com" className="btn btn-light">
             <i className="bi bi-envelope text-danger"></i> Email
           </a>
@@ -178,7 +175,7 @@ const Home = () => (
       <div className="container text-center">
         <h2 className="fw-bold mb-4">Notre Situation Géographique</h2>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999048854016!2d2.292292615674486!3d48.85837307928744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdd8e39f38d%3A0x40b82c3688c9460!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1694430030845!"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.530243958669!2d2.4226311151232436!3d6.384983295256829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1025372ed7c04c3f%3A0x0!2sVedoko%2C%20Cotonou%2C%20Bénin!5e0!3m2!1sfr!2sfr!4v1694430030845"
           allowFullScreen=""
           loading="lazy"
           title="Notre Situation Géographique"

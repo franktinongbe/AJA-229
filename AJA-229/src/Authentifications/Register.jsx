@@ -1,3 +1,4 @@
+// src/pages/Register.jsx
 import React from "react";
 
 const styles = {
@@ -32,10 +33,6 @@ const styles = {
     borderRadius: "1rem",
     boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
   },
-  socialBtn: {
-    width: "100%",
-    marginBottom: "10px",
-  },
 };
 
 export default function Register() {
@@ -47,7 +44,10 @@ export default function Register() {
         <p className="lead">
           Rejoignez notre plateforme pour accéder aux meilleures opportunités.
         </p>
-        <i className="bi bi-people-fill" style={{ fontSize: "4rem", opacity: 0.9 }}></i>
+        <i
+          className="bi bi-people-fill"
+          style={{ fontSize: "4rem", opacity: 0.9 }}
+        ></i>
       </div>
 
       {/* Section droite */}
@@ -95,17 +95,6 @@ export default function Register() {
               S&apos;inscrire
             </button>
           </form>
-
-          <div className="text-center text-muted mb-2">ou inscrivez-vous avec</div>
-          <button className="btn btn-outline-danger" style={styles.socialBtn}>
-            <i className="bi bi-google"></i> Google
-          </button>
-          <button className="btn btn-outline-primary" style={styles.socialBtn}>
-            <i className="bi bi-facebook"></i> Facebook
-          </button>
-          <button className="btn btn-outline-info" style={styles.socialBtn}>
-            <i className="bi bi-linkedin"></i> LinkedIn
-          </button>
 
           <p className="text-center mt-3">
             Déjà un compte ? <a href="/login">Se connecter</a>

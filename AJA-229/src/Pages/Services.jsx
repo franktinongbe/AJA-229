@@ -68,6 +68,14 @@ const Services = () => {
         "Renforcez la cohésion et la motivation de vos équipes grâce à des séminaires et activités de team building dynamiques.",
       link: "/conseil",
     },
+
+     {
+      icon: "bi bi-people",
+      title: "Offres d'Emploi",
+      description:
+        "nos offres d'emplois, fiables et constructrices.",
+      link: "/offres",
+    },
   ];
 
   return (

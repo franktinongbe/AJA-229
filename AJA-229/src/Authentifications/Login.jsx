@@ -1,3 +1,4 @@
+// src/pages/Login.jsx
 import React from "react";
 
 const styles = {
@@ -32,10 +33,6 @@ const styles = {
     borderRadius: "1rem",
     boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
   },
-  socialBtn: {
-    width: "100%",
-    marginBottom: "10px",
-  },
 };
 
 const Login = () => (
@@ -46,13 +43,17 @@ const Login = () => (
       <p className="lead">
         Connectez-vous pour accéder à votre compte et découvrir nos nouveautés.
       </p>
-      <i className="bi bi-box-arrow-in-right" style={{ fontSize: "4rem", opacity: 0.9 }}></i>
+      <i
+        className="bi bi-box-arrow-in-right"
+        style={{ fontSize: "4rem", opacity: 0.9 }}
+      ></i>
     </div>
 
     {/* Partie droite */}
     <div style={styles.right}>
       <div style={styles.loginCard}>
         <h2 className="fw-bold text-center mb-4">Se connecter</h2>
+
         <form>
           <div className="mb-3">
             <label className="form-label">Email</label>
@@ -76,17 +77,6 @@ const Login = () => (
             Connexion
           </button>
         </form>
-
-        <div className="text-center text-muted mb-2">ou connectez-vous avec</div>
-        <button className="btn btn-outline-danger" style={styles.socialBtn}>
-          <i className="bi bi-google"></i> Google
-        </button>
-        <button className="btn btn-outline-primary" style={styles.socialBtn}>
-          <i className="bi bi-facebook"></i> Facebook
-        </button>
-        <button className="btn btn-outline-info" style={styles.socialBtn}>
-          <i className="bi bi-linkedin"></i> LinkedIn
-        </button>
 
         <p className="text-center mt-3">
           <a href="/forgotPassword">Mot de passe oublié ?</a>
