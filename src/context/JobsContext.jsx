@@ -1,11 +1,14 @@
 // src/context/JobsContext.js
 import React, { createContext, useState } from "react";
 
+// Créer le contexte
 export const JobsContext = createContext();
 
+// Provider pour encapsuler l'application
 export const JobsProvider = ({ children }) => {
   const [jobs, setJobs] = useState([]);
 
+  // Ajouter une offre d'emploi
   const addJob = (job) => {
     if (!job.title || !job.description) return;
 
@@ -22,6 +25,7 @@ export const JobsProvider = ({ children }) => {
     setJobs((prevJobs) => [...prevJobs, newJob]);
   };
 
+  // Supprimer une offre
   const removeJob = (id) => {
     setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
   };
@@ -32,4 +36,6 @@ export const JobsProvider = ({ children }) => {
     </JobsContext.Provider>
   );
 };
-export default JobsProvider;
+
+// On recommande **export par nom uniquement**
+// export default JobsProvider;  <-- inutile
