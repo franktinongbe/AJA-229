@@ -3,7 +3,7 @@ import React from "react";
 const footerStyle = {
   backgroundColor: "#031c3fff",
   color: "#f3f4f6",
-  width: "100vw", // prend toute la largeur de la fenêtre
+  width: "100vw",
   margin: "0",
   padding: "0",
 };
@@ -11,8 +11,7 @@ const footerStyle = {
 const partnerLogoStyle = {
   maxHeight: "60px",
   margin: "auto",
-  filter: "grayscale(100%)",
-  transition: "filter 0.3s",
+  transition: "transform 0.3s",
 };
 
 const socialIconStyle = {
@@ -38,8 +37,12 @@ const Footer = () => {
         footer a:hover {
           color: #fbbf24 !important;
         }
+        /* Les logos gardent leur couleur réelle */
+        .partner-logo {
+          filter: none !important;
+        }
         .partner-logo:hover {
-          filter: grayscale(0%);
+          transform: scale(1.1);
         }
         .carousel {
           margin-bottom: 2rem !important;
@@ -52,7 +55,6 @@ const Footer = () => {
 
       <footer style={footerStyle}>
         <div className="container-fluid px-4 py-5">
-          {/* Partenaires : Carrousel */}
           <h5 className="text-uppercase text-center fw-bold mb-4">
             Nos Partenaires
           </h5>
@@ -62,30 +64,27 @@ const Footer = () => {
             data-bs-ride="carousel"
           >
             <div className="carousel-inner text-center">
-              <div className="carousel-item active">
-                <img
-                  src="https://i.pinimg.com/736x/d9/7a/e4/d97ae41683750486d6593f2c18ccd82c.jpg"
-                  className="partner-logo d-block mx-auto"
-                  alt="Partenaire 1"
-                  style={partnerLogoStyle}
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://i.pinimg.com/1200x/09/7e/f3/097ef3d09fc63758078eb7a3eba41b43.jpg"
-                  className="partner-logo d-block mx-auto"
-                  alt="Partenaire 2"
-                  style={partnerLogoStyle}
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://i.pinimg.com/736x/f8/d6/44/f8d64404d2ab779a058565ef53d90d19.jpg"
-                  className="partner-logo d-block mx-auto"
-                  alt="Partenaire 3"
-                  style={partnerLogoStyle}
-                />
-              </div>
+              {[
+                "/GOLF.png",
+                "/ANPE.png",
+                "/CEB.png",
+                "/DONGA.png",
+                "/IMT.png",
+                "/VOITH.png",
+                "/SONI.png",
+              ].map((src, index) => (
+                <div
+                  key={src}
+                  className={`carousel-item ${index === 0 ? "active" : ""}`}
+                >
+                  <img
+                    src={src}
+                    className="partner-logo d-block mx-auto"
+                    alt={`Partenaire ${index + 1}`}
+                    style={partnerLogoStyle}
+                  />
+                </div>
+              ))}
             </div>
             <button
               className="carousel-control-prev"
@@ -105,7 +104,6 @@ const Footer = () => {
             </button>
           </div>
 
-          {/* Colonnes */}
           <div className="row gx-5">
             <div className="col-md-4 mb-4">
               <h5 className="fw-bold text-uppercase">Africa Job Agency</h5>
@@ -143,24 +141,18 @@ const Footer = () => {
             <div className="col-md-4 mb-4">
               <h6 className="fw-bold text-uppercase">Suivez-nous</h6>
               <div className="social-icons mb-3">
-                <a href="#" style={socialIconStyle}>
-                  <i className="bi bi-facebook"></i>
-                </a>
-                <a href="#" style={socialIconStyle}>
-                  <i className="bi bi-twitter"></i>
-                </a>
-                <a href="#" style={socialIconStyle}>
-                  <i className="bi bi-instagram"></i>
-                </a>
-                <a href="#" style={socialIconStyle}>
-                  <i className="bi bi-linkedin"></i>
-                </a>
+                {["facebook", "twitter", "instagram", "linkedin"].map((icon) => (
+                  <a href="#" key={icon} style={socialIconStyle}>
+                    <i className={`bi bi-${icon}`}></i>
+                  </a>
+                ))}
               </div>
               <p>
                 <i className="bi bi-envelope me-2"></i> admin@africajobagency.bj
               </p>
               <p>
-                <i className="bi bi-phone me-2"></i> +229 01 55 67 45 45  /  01 52 51 47 47
+                <i className="bi bi-phone me-2"></i> +229 01 55 67 45 45 / 01 52
+                51 47 47
               </p>
             </div>
           </div>
