@@ -18,6 +18,7 @@ import ModalRendezVous from "./components/ModalRendezVous";
 import Profil from "./Pages/Profil";
 import Offres from "./Pages/offres";
 import AjoutOffre from "./Pages/AjoutOffre";
+import JobDetailPage from "./Pages/JobDetailPage";
 import Sidebar from "./components/Sidebar";
 import Recrutement from "./Pages/Recrutement";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -54,6 +55,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/offres" element={<Offres />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/offres/:id" element={<JobDetailPage />} />
           <Route path="/ajout" element={<AjoutOffre />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />

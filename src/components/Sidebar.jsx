@@ -61,7 +61,8 @@ const Sidebar = () => {
   const mainPages = [
     { name: "Tableau de bord", icon: <FaTachometerAlt />, path: "/dashboard" },
     { name: "Offres", icon: <FaTags />, path: "/offres" },
-    { name: "AjoutOffre", icon: <FaPlusSquare />, path: "/ajout" },
+    { name: "AjoutOffre", icon: <FaTags />, path: "/ajout" },
+    { name: "JobDetail", icon: <FaPlusSquare />, path:"/offres/:id"  },
     { name: "Blog", icon: <FaBlog />, path: "/blog" },
   ];
 

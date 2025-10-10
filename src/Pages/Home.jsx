@@ -158,42 +158,57 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Statistiques */}
-      <section className="py-5">
-        <div className="container text-center">
-          <h2 className="fw-bold mb-5">Nos Statistiques</h2>
-          <div className="row g-4">
-            <div className="col-md-3">
-              <div className="stats-card">
-                <i className="bi bi-people fs-1 text-primary"></i>
-                <h3 className="fw-bold mt-3">500+</h3>
-                <p>Candidats placés</p>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="stats-card">
-                <i className="bi bi-building fs-1 text-success"></i>
-                <h3 className="fw-bold mt-3">120+</h3>
-                <p>Entreprises partenaires</p>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="stats-card">
-                <i className="bi bi-award fs-1 text-warning"></i>
-                <h3 className="fw-bold mt-3">15</h3>
-                <p>Années d’expérience</p>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="stats-card">
-                <i className="bi bi-briefcase fs-1 text-danger"></i>
-                <h3 className="fw-bold mt-3">300+</h3>
-                <p>Offres gérées</p>
-              </div>
-            </div>
-          </div>
+    {/* La "Carte d'Aventure" vers l'Emploi Idéal */}
+<section className="py-5 bg-light">
+  <div className="container text-center">
+    <h2 className="fw-bold mb-5 text-primary">✨ Votre Prochaine Réussite commence Ici !</h2>
+    <p className="lead mb-5 text-muted">Notre méthode exclusive pour garantir votre épanouissement professionnel.</p>
+
+    <div className="row g-4 align-items-stretch">
+      
+      {/* Étape 1 : Le Découverte (Remplacement de "Candidats placés") */}
+      <div className="col-md-3">
+        <div className="card h-100 p-4 shadow-sm border-0 border-top border-5 border-primary">
+          <i className="bi bi-compass display-3 text-primary mb-3"></i>
+          <h3 className="fw-bold fs-4">1. L'Évaluation Ciblée</h3>
+          <p>Nous définissons ensemble vos ambitions réelles et le chemin à prendre.</p>
         </div>
-      </section>
+      </div>
+      
+      {/* Étape 2 : L'Opportunité (Remplacement de "Offres gérées") */}
+      <div className="col-md-3">
+        <div className="card h-100 p-4 shadow-sm border-0 border-top border-5 border-success">
+          <i className="bi bi-search display-3 text-success mb-3"></i>
+          <h3 className="fw-bold fs-4">2. Les Opportunités Sur Mesure</h3>
+          <p>Accédez à des postes exclusifs qui correspondent vraiment à votre profil.</p>
+        </div>
+      </div>
+      
+      {/* Étape 3 : La Connexion (Remplacement de "Entreprises partenaires") */}
+      <div className="col-md-3">
+        <div className="card h-100 p-4 shadow-sm border-0 border-top border-5 border-warning">
+          <i className="bi bi-hand-thumbs-up display-3 text-warning mb-3"></i>
+          <h3 className="fw-bold fs-4">3. La Mise en Relation Parfaite</h3>
+          <p>Rencontrez directement les décideurs des entreprises les plus innovantes.</p>
+        </div>
+      </div>
+      
+      {/* Étape 4 : Le Succès (Remplacement de "Années d’expérience") */}
+      <div className="col-md-3">
+        <div className="card h-100 p-4 shadow-sm border-0 border-top border-5 border-danger">
+          <i className="bi bi-trophy display-3 text-danger mb-3"></i>
+          <h3 className="fw-bold fs-4">4. Le Nouveau Chapitre</h3>
+          <p>Nous célébrons votre intégration réussie et votre avenir prometteur.</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div className="mt-5">
+        <a href="/services" className="btn btn-lg btn-primary shadow-lg">Commencer mon Aventure Maintenant</a>
+    </div>
+  </div>
+</section>
 
       {/* Témoignages */}
       <section className="testimonials text-center">

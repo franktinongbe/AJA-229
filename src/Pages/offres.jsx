@@ -1,68 +1,84 @@
-// JobDetailPage.jsx
+// Pages/Offres.jsx (Anciennement Jobs)
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Card, Badge, ListGroup, Button } from "react-bootstrap";
+import { Link } from "react-router-dom"; // Import Link pour naviguer vers la page de détail
+import jobs from "./Jobs"; // Importez les données des offres d'emploi
+import { JobsContext } from "../context/JobsContext";
+const style = `
+  body { background-color: #f9fafb; }
+  .job-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%; /* Assure une hauteur uniforme pour les cartes */
+    text-decoration: none; /* Enlève la décoration du lien */
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .job-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+  .job-title { color: #4f46e5; font-weight: 600; }
+  .apply-btn { 
+    background-color: #4f46e5; 
+    color: #fff; 
+    border-radius: 30px; 
+    padding: 0.4rem 1.2rem; 
+    text-decoration: none; /* Pour que le Link ressemble à un bouton */
+  }
+  .apply-btn:hover { background-color: #4338ca; }
+  .filter-bar select { border-radius: 30px; }
+`;
 
-// Exemple d'offres simulées
-const jobs = [
-  {
-    id: 1,
-    title: "Développeur Web Full-Stack",
-    location: "Paris, France",
-    type: "CDI",
-    description: "Participez au développement d’applications web performantes dans une entreprise innovante.",
-    responsibilities: [
-      "Développer des interfaces web réactives et optimisées",
-      "Collaborer avec les designers",
-      "Maintenir et optimiser le code"
-    ],
-  },
-  {
-    id: 2,
-    title: "Chargé de Communication",
-    location: "Marseille, France",
-    type: "Stage",
-    description: "Animez la communication interne et externe pour renforcer l’image de l’entreprise.",
-    responsibilities: ["Gestion des réseaux sociaux", "Communication interne", "Organisation d’événements"]
-  },
-];
-
-const Offre = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-
-  const job = jobs.find((j) => j.id === parseInt(id));
-  if (!job) return <p>Offre non trouvée</p>;
-
+const Offres = () => {
+  // J'ai retiré le useEffect pour le chargement dynamique de Bootstrap,
+  // car il est déjà chargé globalement dans votre App.jsx
+  
   return (
-    <Container className="py-5">
-      <Row className="justify-content-center">
-        <Col md={8}>
-          <Card className="shadow-lg rounded-4">
-            <Card.Body>
-              <h2 className="text-primary mb-3">{job.title}</h2>
-              <p className="text-muted">{job.location}</p>
-              <Badge bg="info">{job.type}</Badge>
+    <>
+      <style>{style}</style>
+      {/* En-tête */}
+      <section className="py-5 text-center bg-primary text-white">
+        <div className="container">
+          <h1 className="fw-bold">Nos Offres d’Emploi</h1>
+          <p className="lead">Filtrez et trouvez rapidement le poste qui vous correspond.</p>
+        </div>
+      </section>
 
-              <h4 className="mt-4">Description</h4>
-              <p>{job.description}</p>
+      {/* Filtres (laissé statique pour l'exemple) */}
+      <section className="py-4">
+        <div className="container">
+          <div className="row g-3 filter-bar justify-content-center">
+            {/* ... Vos sélecteurs de filtre ... */}
+          </div>
+        </div>
+      </section>
 
-              <h4 className="mt-4">Responsabilités</h4>
-              <ListGroup className="mb-4">
-                {job.responsibilities.map((r, idx) => (
-                  <ListGroup.Item key={idx}>{r}</ListGroup.Item>
-                ))}
-              </ListGroup>
+      {/* Liste des offres générée dynamiquement */}
+      <section className="py-5">
+        <div className="container">
+          <div className="row g-4">
+            {jobs.map((job) => (
+              <div key={job.id} className="col-md-6 col-lg-4">
+                {/* La carte entière est un lien vers la page de détail */}
+                <Link to={`/offres/${job.id}`} className="job-card">
+                  <h5 className="job-title">{job.title}</h5>
+                  <p className="text-muted"><i className="bi bi-geo-alt"></i> {job.location}</p>
+                  <p>{job.description}</p>
+                  <div className="mt-auto d-flex justify-content-between align-items-center">
+                    <span className="text-muted">{job.type} • {job.contractDetail}</span>
+                    {/* Le bouton "Postuler" redirige vers la page de détail */}
+                    <span className="apply-btn btn">Détail</span> 
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <Button variant="primary" size="lg" onClick={() => navigate("/soumission")}>
-                Postuler maintenant
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+      {/* J'ai retiré la Modal statique pour la remplacer par la page de détail */}
+    </>
   );
 };
 
-export default Offre;
+export default Offres;
