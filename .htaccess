@@ -1,0 +1,11 @@
+# 📌 Forcer le bon type MIME pour JS et CSS
+AddType application/javascript .js
+AddType text/css .css
+
+# 📌 Gérer les routes React Router : rediriger toutes les requêtes vers index.html
+RewriteEngine On
+RewriteBase /app/
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /app/index.html [L]
