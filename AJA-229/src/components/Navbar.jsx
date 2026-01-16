@@ -100,7 +100,7 @@ const Navbar = () => (
       <div className="container-fluid">
         {/* Logo */}
         <a className="navbar-brand fw-bold d-flex align-items-center" href="/">
-          <img src="/logo.jpeg" alt="Mon Logo" />
+          <img src="/favicon.ico" alt="Mon Logo" />
         </a>
 
         {/* Bouton menu pour mobile */}
