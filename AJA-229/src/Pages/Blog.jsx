@@ -1,162 +1,162 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Spinner, Alert } from "react-bootstrap";
+import axios from "axios";
 
 const styles = {
-  body: { backgroundColor: "#f9fafb" },
-  blogCard: {
+  body: { backgroundColor: "#f4f7f6", minHeight: "100vh" },
+  jobCard: {
     background: "#fff",
-    borderRadius: "1rem",
-    overflow: "hidden",
-    transition: "transform 0.3s, boxShadow 0.3s",
+    borderRadius: "1.2rem",
+    border: "none",
+    boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+    transition: "transform 0.3s ease",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
-  blogImg: { height: 200, objectFit: "cover", width: "100%" },
-  blogContent: { padding: "1.5rem" },
-  blogTitle: {
+  cardContent: { padding: "1.8rem", flexGrow: 1 },
+  jobTitle: {
+    color: "#4f46e5",
+    fontWeight: 700,
+    fontSize: "1.25rem",
+    marginBottom: "0.5rem",
+  },
+  badge: {
+    fontSize: "0.75rem",
+    padding: "0.5rem 1rem",
+    borderRadius: "2rem",
+    backgroundColor: "#eef2ff",
     color: "#4f46e5",
     fontWeight: 600,
-    marginBottom: "0.5rem",
+    display: "inline-block",
+    marginBottom: "1rem"
   },
   meta: {
     fontSize: "0.9rem",
     color: "#6b7280",
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
     marginBottom: "1rem",
   },
-  readMore: { textDecoration: "none", fontWeight: 500, color: "#4f46e5" },
+  applyBtn: {
+    textDecoration: "none",
+    fontWeight: 600,
+    color: "#fff",
+    backgroundColor: "#4f46e5",
+    padding: "0.8rem 1.5rem",
+    borderRadius: "0.8rem",
+    display: "inline-block",
+    textAlign: "center",
+    transition: "background 0.3s"
+  },
 };
 
-const Blog = () => (
-  <div style={styles.body}>
-    {/* En-tête */}
-    <section className="py-5 text-center bg-primary text-white">
-      <div className="container">
-        <h1 className="fw-bold">Notre Blog</h1>
-        <p className="lead">
-          Conseils carrière, tendances RH et actualités du recrutement.
-        </p>
-      </div>
-    </section>
+const OffresList = () => {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
-    {/* Barre de recherche */}
-    <section className="py-4">
-      <div className="container">
-        <div className="input-group mx-auto" style={{ maxWidth: 500 }}>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Rechercher un article..."
-          />
-          <button className="btn btn-primary">
-            <i className="bi bi-search"></i>
-          </button>
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        setLoading(true);
+        // Remplacez par votre URL API réelle
+        const response = await axios.get("http://votre-api.com/api/jobs");
+        setJobs(response.data);
+      } catch (err) {
+        setError("Impossible de charger les offres d'emploi.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchJobs();
+  }, []);
+
+  // Filtrage des offres selon la recherche
+  const filteredJobs = jobs.filter(job =>
+    job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    job.location.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return (
+    <div style={styles.body}>
+      {/* En-tête */}
+      <section className="py-5 text-center bg-primary text-white">
+        <div className="container">
+          <h1 className="fw-bold text-white">Nos Offres d'Emploi</h1>
+          <p className="lead opacity-75">
+            Trouvez l'opportunité qui correspond à vos ambitions.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Liste des articles */}
-    <section className="py-5">
-      <div className="container">
-        <div className="row g-4">
-          {/* Article 1 */}
-          <div className="col-md-4">
-            <div className="blog-card" style={styles.blogCard}>
-              <img
-                src="https://via.placeholder.com/400x200?text=Article+1"
-                alt="Article 1"
-                style={styles.blogImg}
-              />
-              <div style={styles.blogContent}>
-                <h5 style={styles.blogTitle}>5 conseils pour réussir votre entretien</h5>
-                <p style={styles.meta}>
-                  <i className="bi bi-calendar-event"></i> 10 Sept 2025 •{" "}
-                  <i className="bi bi-person"></i> RH
-                </p>
-                <p>
-                  Maximisez vos chances grâce à ces astuces pratiques pour
-                  impressionner les recruteurs.
-                </p>
-                <a href="#" style={styles.readMore}>
-                  Lire la suite →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Article 2 */}
-          <div className="col-md-4">
-            <div className="blog-card" style={styles.blogCard}>
-              <img
-                src="https://via.placeholder.com/400x200?text=Article+2"
-                alt="Article 2"
-                style={styles.blogImg}
-              />
-              <div style={styles.blogContent}>
-                <h5 style={styles.blogTitle}>L’IA et le recrutement en 2025</h5>
-                <p style={styles.meta}>
-                  <i className="bi bi-calendar-event"></i> 25 Août 2025 •{" "}
-                  <i className="bi bi-person"></i> RH
-                </p>
-                <p>
-                  Découvrez comment l’intelligence artificielle transforme les
-                  processus d’embauche.
-                </p>
-                <a href="#" style={styles.readMore}>
-                  Lire la suite →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Article 3 */}
-          <div className="col-md-4">
-            <div className="blog-card" style={styles.blogCard}>
-              <img
-                src="https://via.placeholder.com/400x200?text=Article+3"
-                alt="Article 3"
-                style={styles.blogImg}
-              />
-              <div style={styles.blogContent}>
-                <h5 style={styles.blogTitle}>Optimiser votre marque employeur</h5>
-                <p style={styles.meta}>
-                  <i className="bi bi-calendar-event"></i> 2 Août 2025 •{" "}
-                  <i className="bi bi-person"></i> Com
-                </p>
-                <p>
-                  Attirez les meilleurs talents en soignant votre image employeur
-                  grâce à des stratégies efficaces.
-                </p>
-                <a href="#" style={styles.readMore}>
-                  Lire la suite →
-                </a>
-              </div>
-            </div>
+      {/* Barre de recherche */}
+      <section className="py-4 mt-n4">
+        <div className="container">
+          <div className="input-group mx-auto shadow-sm" style={{ maxWidth: 600 }}>
+            <span className="input-group-text bg-white border-0 ps-3">
+              <i className="bi bi-search text-muted"></i>
+            </span>
+            <input
+              type="text"
+              className="form-control border-0 py-3"
+              placeholder="Poste, ville ou compétence..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
         </div>
+      </section>
 
-        {/* Pagination */}
-        <nav className="mt-5">
-          <ul className="pagination justify-content-center">
-            <li className="page-item disabled">
-              <a className="page-link">Précédent</a>
-            </li>
-            <li className="page-item active">
-              <a className="page-link" href="#">
-                1
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
-                2
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
-                Suivant
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </section>
-  </div>
-);
+      {/* Liste des Offres */}
+      <section className="py-5">
+        <div className="container">
+          {loading ? (
+            <div className="text-center py-5">
+              <Spinner animation="border" variant="primary" />
+              <p className="mt-3 text-muted">Recherche des meilleures opportunités...</p>
+            </div>
+          ) : error ? (
+            <Alert variant="danger" className="text-center">{error}</Alert>
+          ) : (
+            <div className="row g-4">
+              {filteredJobs.length > 0 ? (
+                filteredJobs.map((job) => (
+                  <div className="col-md-4" key={job.id}>
+                    <div className="job-card" style={styles.jobCard}>
+                      <div style={styles.cardContent}>
+                        <span style={styles.badge}>{job.type}</span>
+                        <h5 style={styles.jobTitle}>{job.title}</h5>
+                        
+                        <div style={styles.meta}>
+                          <span><i className="bi bi-geo-alt"></i> {job.location}</span>
+                        </div>
+                        
+                        <p className="text-muted small mb-4">
+                          {job.description.substring(0, 120)}...
+                        </p>
 
-export default Blog;
+                        <Link to={`/offres/${job.id}`} style={styles.applyBtn} className="w-100">
+                          Voir l'offre
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-5">
+                  <p className="text-muted">Aucune offre ne correspond à votre recherche.</p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default OffresList;

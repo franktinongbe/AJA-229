@@ -1,190 +1,179 @@
-// src/pages/Home.jsx
 import React from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 const style = `
-  body { background-color: #f9fafb; }
+  :root {
+    --primary-color: #4f46e5;
+    --secondary-color: #f59e0b;
+  }
 
   .hero {
-    position: relative;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('/image1.png') center center / cover no-repeat;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+                url('/image1.png') center/cover no-repeat fixed;
     color: white;
-    padding: 140px 0;
-    overflow: hidden;
-    background-attachment: fixed; /* effet parallaxe */
   }
 
-  @media (max-width: 768px) {
-    .hero {
-      background-attachment: scroll;
-      padding: 100px 0;
-      background-position: center top;
-    }
+  /* Animation d'entrée */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .hero h1, .hero p {
-    position: relative;
-    z-index: 2;
+  .animate-fade { animation: fadeInUp 0.8s ease-out forwards; }
+
+  /* Grille de logos en défilement infini */
+  .logo-track {
+    display: flex;
+    width: calc(250px * 10);
+    animation: scroll 20s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
   }
 
   .partner-logo {
-    max-height: 60px;
+    width: 200px;
+    margin: 0 40px;
     filter: grayscale(100%);
-    transition: filter 0.3s;
+    opacity: 0.6;
+    transition: 0.3s;
   }
-  .partner-logo:hover { filter: grayscale(0%); }
+  .partner-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
 
   .stats-card {
-    background: white;
-    border-radius: 1rem;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 1.5rem;
+    background: #ffffff;
+    transition: all 0.3s ease;
+  }
+  .stats-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
   }
 
-  iframe {
-    border: 0;
-    width: 100%;
-    height: 350px;
+  .schedule-box {
+    background: white;
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem;
     border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+
+  .map-container {
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
 `;
 
-const Home = () => (
-  <>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-    <style>{style}</style>
+const Home = () => {
+  return (
+    <div style={{ backgroundColor: "#f8fafc" }}>
+      <style>{style}</style>
 
-    {/* Hero */}
-    <section className="hero text-center">
-      <div className="container">
-        <h1 className="fw-bold display-4">Bienvenue à Africa Job Agency</h1>
-        <p className="lead">
-          Votre partenaire pour le recrutement, la formation et la gestion des talents.
-        </p>
-        <div className="d-flex flex-column flex-md-row justify-content-center gap-3 mt-4">
-          <a href="/contact" className="btn btn-primary btn-lg">
-            Contactez-nous
-          </a>
-          <a href="/jobs" className="btn btn-warning btn-lg text-dark fw-bold">
-            <i className="bi bi-briefcase"></i> Postulez maintenant
-          </a>
-        </div>
-      </div>
-    </section>
-
-    {/* Horaires */}
-    <section className="py-5 text-center">
-      <div className="container">
-        <h2 className="fw-bold mb-4">Nos Horaires</h2>
-        <p>Lundi - Vendredi : 8h00 - 18h00</p>
-        <p>Samedi : 9h00 - 13h00</p>
-        <p>Dimanche : Fermé</p>
-      </div>
-    </section>
-
-    {/* Partenaires */}
-    <section className="py-5 bg-light">
-      <div className="container text-center">
-        <h2 className="fw-bold mb-5">Nos Partenaires</h2>
-        <div id="carouselPartenaires" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img src="/public/logo1.png" className="partner-logo mx-3" alt="Partenaire 1" />
-              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 2" />
-              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 3" />
-            </div>
-            <div className="carousel-item">
-              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 4" />
-              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 5" />
-              <img src="/public/logo2.png" className="partner-logo mx-3" alt="Partenaire 6" />
-            </div>
+      {/* Hero Section */}
+      <section className="hero">
+        <Container className="text-center animate-fade">
+          <h1 className="fw-extrabold display-3 mb-3">
+            Propulsez votre <span style={{ color: 'var(--secondary-color)' }}>Carrière</span> en Afrique
+          </h1>
+          <p className="lead fs-4 mb-5 opacity-90 mx-auto" style={{ maxWidth: '800px' }}>
+            Africa Job Agency : l'expertise du recrutement local alliée aux standards internationaux.
+          </p>
+          <div className="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <Button href="/jobs" size="lg" className="px-5 py-3 border-0" style={{ backgroundColor: 'var(--secondary-color)', fontWeight: 'bold' }}>
+              Consulter les offres
+            </Button>
+            <Button href="/contact" variant="outline-light" size="lg" className="px-5 py-3">
+              Recruter un talent
+            </Button>
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon"></span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="next">
-            <span className="carousel-control-next-icon"></span>
-          </button>
-        </div>
-      </div>
-    </section>
+        </Container>
+      </section>
 
-    {/* Statistiques */}
-    <section className="py-5">
-      <div className="container text-center">
-        <h2 className="fw-bold mb-5">Nos Statistiques</h2>
-        <div className="row g-4">
-          <div className="col-md-3">
-            <div className="stats-card">
-              <i className="bi bi-people fs-1 text-primary"></i>
-              <h3 className="fw-bold mt-3">500+</h3>
-              <p>Candidats placés</p>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="stats-card">
-              <i className="bi bi-building fs-1 text-success"></i>
-              <h3 className="fw-bold mt-3">120+</h3>
-              <p>Entreprises partenaires</p>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="stats-card">
-              <i className="bi bi-award fs-1 text-warning"></i>
-              <h3 className="fw-bold mt-3">15</h3>
-              <p>Années d’expérience</p>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="stats-card">
-              <i className="bi bi-briefcase fs-1 text-danger"></i>
-              <h3 className="fw-bold mt-3">300+</h3>
-              <p>Offres gérées</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      {/* Statistiques (Passées en haut pour crédibilité) */}
+      <Container className="mt-n5 position-relative" style={{ zIndex: 10 }}>
+        <Row className="g-4 justify-content-center">
+          {[
+            { icon: "people", val: "500+", label: "Placements", color: "#4f46e5" },
+            { icon: "building", val: "120+", label: "Entreprises", color: "#10b981" },
+            { icon: "award", val: "15", label: "Ans d'expertise", color: "#f59e0b" }
+          ].map((stat, i) => (
+            <Col md={3} key={i}>
+              <Card className="stats-card shadow-sm py-4 text-center">
+                <i className={`bi bi-${stat.icon} fs-1 mb-2`} style={{ color: stat.color }}></i>
+                <h3 className="fw-bold mb-0">{stat.val}</h3>
+                <small className="text-muted text-uppercase">{stat.label}</small>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
 
-    {/* Contact rapide */}
-    <section className="py-5 bg-primary text-white" id="contact">
-      <div className="container text-center">
-        <h2 className="fw-bold mb-4">Nous Contacter</h2>
-        <p>Discutez avec nous via vos canaux préférés :</p>
-        <div className="d-flex justify-content-center gap-4 mt-3">
-          <a href="https://wa.me/+22966008100" target="_blank" rel="noopener noreferrer" className="btn btn-light">
-            <i className="bi bi-whatsapp text-success"></i> WhatsApp
-          </a>
-          <a href="mailto:contact@monsite.com" className="btn btn-light">
-            <i className="bi bi-envelope text-danger"></i> Email
-          </a>
-        </div>
-      </div>
-    </section>
+      {/* Horaires & Infos */}
+      <section className="py-5 mt-5">
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6} className="mb-4 mb-lg-0">
+              <h2 className="fw-bold mb-4">À votre service <span className="text-primary">partout au Bénin</span></h2>
+              <p className="text-muted mb-4">Nous vous accueillons dans nos bureaux pour un accompagnement personnalisé de votre projet professionnel.</p>
+              <div className="d-flex flex-column gap-3">
+                <div className="schedule-box d-flex justify-content-between">
+                  <span>Lundi - Vendredi</span>
+                  <span className="fw-bold">08h00 - 18h00</span>
+                </div>
+                <div className="schedule-box d-flex justify-content-between">
+                  <span>Samedi</span>
+                  <span className="fw-bold">09h00 - 13h00</span>
+                </div>
+              </div>
+            </Col>
+            <Col lg={6}>
+              <div className="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=..." // Remplacez par votre vrai lien embed
+                  width="100%" height="400" loading="lazy" title="localisation"
+                ></iframe>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-    {/* Situation géographique */}
-    <section className="py-5">
-      <div className="container text-center">
-        <h2 className="fw-bold mb-4">Notre Situation Géographique</h2>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.530243958669!2d2.4226311151232436!3d6.384983295256829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1025372ed7c04c3f%3A0x0!2sVedoko%2C%20Cotonou%2C%20Bénin!5e0!3m2!1sfr!2sfr!4v1694430030845"
-          allowFullScreen=""
-          loading="lazy"
-          title="Notre Situation Géographique"
-        ></iframe>
-      </div>
-    </section>
+      {/* Partenaires (Marquee infini) */}
+      <section className="py-5 bg-white border-top border-bottom overflow-hidden">
+        <Container>
+          <h5 className="text-center text-muted mb-5 text-uppercase" style={{ letterSpacing: '2px' }}>Ils nous font confiance</h5>
+          <div className="logo-track">
+            {/* Doubler les images pour l'effet infini */}
+            {['logo1', 'logo2', 'logo1', 'logo2', 'logo1', 'logo1', 'logo2', 'logo1', 'logo2', 'logo1'].map((img, i) => (
+              <img key={i} src={`/public/${img}.png`} className="partner-logo" alt="Partenaire" />
+            ))}
+          </div>
+        </Container>
+      </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </>
-);
+      {/* CTA Final */}
+      <section className="py-5 bg-dark text-white text-center">
+        <Container className="py-4">
+          <h2 className="fw-bold mb-4">Prêt à franchir une nouvelle étape ?</h2>
+          <div className="d-flex justify-content-center gap-4">
+            <a href="https://wa.me/+22966008100" className="btn btn-success btn-lg px-4 rounded-pill">
+              <i className="bi bi-whatsapp me-2"></i>WhatsApp
+            </a>
+            <a href="mailto:contact@aja.com" className="btn btn-outline-light btn-lg px-4 rounded-pill">
+              <i className="bi bi-envelope me-2"></i>Email
+            </a>
+          </div>
+        </Container>
+      </section>
+    </div>
+  );
+};
 
 export default Home;
