@@ -2,11 +2,16 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import React, { lazy, Suspense } from "react"; // Ajout de lazy et Suspense
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 // --- COMPOSANTS FIXES (chargés immédiatement car visibles partout) ---
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
+
 
 // --- PAGES EN LAZY LOADING (chargées uniquement quand on y va) ---
 const Home = lazy(() => import("./Pages/Home"));
